@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const BreakingNews = () => {
   return (
     <div className="flex">
-      <button className="btn btn-secondary">Breaking News</button>
+      <button className="btn-sm btn btn-secondary">Breaking News</button>
       <Marquee pauseOnHover={true} speed={60}>
         <div className="flex items-center space-x-5 mx-4">
           <Link to="/">
