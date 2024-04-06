@@ -2,6 +2,8 @@ import { FaEye } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
 import { FaRegBookmark } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import './NewsCard.css';
 
 const NewsCard = ({ news }) => {
@@ -10,14 +12,9 @@ const NewsCard = ({ news }) => {
     title,
     details,
     image_url,
-    thumbnail_url,
     author,
     total_view,
-    rating,
-    category_id,
-    is_trending,
-    is_todays_pick,
-    others_info,
+    rating
   } = news;
   return (
     <div className="border rounded-md my-6">
@@ -41,7 +38,7 @@ const NewsCard = ({ news }) => {
           <h2 className="text-2xl">{title}</h2>
           <img className="" src={image_url} alt="" />
           <p className="details text-gray-500">{details}</p>
-          <button className="text-blue-500 hover:text-blue-600">reade more</button>
+          <Link to={`/news/${_id}`} className="text-blue-500 hover:text-blue-600">reade more</Link>
           <hr />
           {/* rating and views start */}
           <div className="flex justify-between">
@@ -66,5 +63,9 @@ const NewsCard = ({ news }) => {
     </div>
   );
 };
+
+NewsCard.propTypes = {
+  news: PropTypes.object
+}
 
 export default NewsCard;
